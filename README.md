@@ -7,26 +7,9 @@ This repository serves as a centralized record of concepts, hands-on lab project
 ---
 
 ## 🗺️ Cloud-Native Pillars Architecture Map
-```
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│  Microservices  │ ──► │   Containers    │ ──► │  Orchestrators  │ ──► │ Communications  │
-└────────┬────────┘     └────────┬────────┘     └────────┬────────┘     └────────┬────────┘
-         │                       │                       │                       │
-• Spring Boot           • Docker                • Kubernetes            • Service Meshes
-• NodeJS                • Containerd            • Docker Swarm          • Istio
-• .NET                  • CRI-O                 • OpenShift             • Linkerd
-• Go Micro                                                                       │
-                                                                                 ▼
-┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│  Monitoring &   │ ◄── │  DevOps, CI/CD  │ ◄── │   Scalability   │ ◄── │ Backing Services│
-│  Observability  │     │    & GitOps     │     │                 │     │                 │
-└────────┬────────┘     └────────┬────────┘     └────────┬────────┘     └────────┬────────┘
-│                       │                       │                       │
-• Prometheus            • GitHub Actions        • HPA                   • K8s Databases
-• Grafana               • ArgoCD                • KEDA                  • Distributed Caches
-• ELK Stack             • Flux                  • Serverless            • Message Brokers
-```
-<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/ad557d33-cab8-4420-b931-01d32e41fc07" />
+
+<img width="1024" height="559" alt="image" src="https://github.com/user-attachments/assets/cd014d43-271c-4dae-aaf7-01e86cc19ec5" />
+
 
 ---
 
