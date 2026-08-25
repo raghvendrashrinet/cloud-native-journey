@@ -38,7 +38,40 @@
  - Event-Based (State-Change Notification): Sender announces that something happened without caring who reacts.
 
 ---
+## Microservices Communication Styles
+   4 key communication styles
+```
+       ┌─────────────────────────────────────────┐
+       │   Microservices Communication Styles    │
+       └────────────────────┬────────────────────┘
+                            │
+      ┌─────────────────────┼─────────────────────┬─────────────────────┐
+      ▼                     ▼                     ▼                     ▼
+┌───────────┐         ┌───────────┐         ┌───────────┐         ┌───────────┐
+│ Request / │         │ Push &    │         │ Pull      │         │ Event-    │
+│ Response  │         │ Real-Time │         │ Comm.     │         │ Driven    │
+└───────────┘         └───────────┘         └───────────┘         └───────────┘
+HTTP, REST,           HTTP, WebSocket       HTTP, AMQP             (Pub/Sub)
+gRPC, GraphQL.                           (Short / Long Polling)
 
+```
+- **Request / Response Communication**
+   Protocols: HTTP, REST, gRPC, GraphQL.
+   Mechanism: A client sends a synchronous request and waits for a server response before proceeding.
+
+- **Push & Real-Time Communication**
+  Protocols: HTTP, WebSocket.
+  Mechanism: The server pushes real-time data or updates directly to connected clients as soon as changes occur.
+
+- **Pull Communication**
+  Protocols: HTTP, AMQP (Short Polling / Long Polling).
+  Mechanism: The consumer repeatedly requests updates or checks a queue/endpoint at regular intervals to retrieve available data.
+
+- **Event-Driven Communication**
+  Model: Publish / Subscribe (Pub/Sub).
+  Mechanism: Microservices communicate asynchronously by publishing state-change notifications (events) to a broker, allowing subscriber services to react independently.**
+
+---
 ### Communication Matrix
 
 | Flow | Protocol / Tool | Key Purpose |
