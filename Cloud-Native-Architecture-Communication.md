@@ -15,6 +15,28 @@
 * **Message Brokers:** **RabbitMQ** or **Apache Kafka** for non-blocking workflows.
 * **Pub/Sub Pattern:** Services publish events (e.g., `OrderCreated`) to decouple background processes like notifications and inventory.
 
+#### asynchronous microservices communication is divided into two main patterns based on how messages are delivered:
+1. Queue (One-to-One / Point-to-Point):
+2. Topic (One-to-Many / Publish-Subscribe):
+```
+   [ Producer ]                        [ Producer ]
+       │                                   │
+       ▼                                   ▼
+┌─────────────┐                     ┌─────────────┐
+│    Queue    │                     │    Topic    │
+└──────┬──────┘                     └──────┬──────┘
+       │                                   ├───────────────┐
+       ▼                                   ▼               ▼
+┌─────────────┐                     ┌─────────────┐ ┌─────────────┐
+│ Consumer A  │                     │ Consumer A  │ │ Consumer B  │
+└─────────────┘                     └─────────────┘ └─────────────┘
+  (One-to-One)                         (One-to-Many / Pub-Sub)
+```
+
+***Message-Based vs. Event-Based***
+ - Message-Based (Command-Driven): Sender explicitly asks a specific recipient to do something.
+ - Event-Based (State-Change Notification): Sender announces that something happened without caring who reacts.
+
 ---
 
 ### Communication Matrix
@@ -28,7 +50,7 @@
 ---
 
 # ⚖️ Sync vs Async Communication — Architect’s Rule of Thumb
-
+  **If client Waits for response- sync communication, and if client doesnt wait and move to other activity then async**
 ## 🔑 Guiding Principle
 > **Default to Asynchronous (Event‑Driven)** unless you explicitly require immediate, blocking data.
 
